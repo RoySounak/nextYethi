@@ -8,6 +8,9 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import { IconButton } from "@material-ui/core";
 import AppsIcon from "@material-ui/icons/Apps";
 import { useRouter } from "next/router";
+import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
+import WorkIcon from "@material-ui/icons/Work";
+import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 
 const StyledMenu = withStyles({
   paper: {
@@ -57,21 +60,21 @@ export default function TopMenu() {
       to: "/projects",
     },
     {
-      icon: <i className="icon icon-icon-cubes" />,
+      icon: <PhoneIphoneIcon fontSize="small" />,
       title: "Applications",
       description: "Create and Manage Apps under Test",
       link: true,
       to: "/applications",
     },
     {
-      icon: <i className="icon icon-icon-cubes" />,
+      icon: <WorkIcon fontSize="small" />,
       title: "Agents",
       description: "Manage agents for Automated Tests",
       link: true,
       to: "/agents",
     },
     {
-      icon: <i className="icon icon-icon-cubes" />,
+      icon: <RecordVoiceOverIcon fontSize="small" />,
       title: "Users",
       description: "Create and Manage Users",
       link: true,
@@ -104,6 +107,7 @@ export default function TopMenu() {
         {appsMenu.map((menu, index) => (
           <>
             <StyledMenuItem
+              key={index}
               onClick={() => {
                 router.push(menu.to);
                 handleClose();

@@ -5,9 +5,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListAltIcon from "@material-ui/icons/ListAlt";
-import { IconButton } from "@material-ui/core";
+
 import { useRouter } from "next/router";
 import Avatar from "@material-ui/core/Avatar";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const StyledMenu = withStyles({
   //   paper: {
@@ -56,10 +57,10 @@ export default function TopMenu() {
       to: "/users",
     },
     {
-      icon: <i className="icon icon-icon-cubes" />,
+      icon: <ExitToAppIcon fontSize="small" />,
       title: "Log Out",
       link: true,
-      to: "/",
+      to: "https://www.google.com/",
     },
   ];
 

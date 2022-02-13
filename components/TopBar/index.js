@@ -10,8 +10,8 @@ import TopMenu from "../TopMenu";
 import Divider from "@material-ui/core/Divider";
 import { Grid } from "@material-ui/core";
 import { useRouter } from "next/router";
-
 import ProfileMenu from "../ProfileMenu";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const drawerWidth = 240;
 
@@ -75,6 +75,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  tenjinIcon: {
+    color: "black",
+    cursor: "pointer",
+    fontSize: "20px",
+  },
+  circleIcon: {
+    color: "#44409A",
+    cursor: "pointer",
+    marginTop: "0.8rem",
+  },
 }));
 
 const TopBar = ({ open, setOpen, handleDrawerOpen }) => {
@@ -95,12 +105,7 @@ const TopBar = ({ open, setOpen, handleDrawerOpen }) => {
               <Typography
                 variant="h6"
                 noWrap
-                style={{
-                  color: "black",
-
-                  cursor: "pointer",
-                  fontSize: "20px",
-                }}
+                className={classes.tenjinIcon}
                 onClick={() => router.push("/")}
               >
                 Tenjin Online
@@ -112,14 +117,15 @@ const TopBar = ({ open, setOpen, handleDrawerOpen }) => {
               />
             </Grid>
 
-            <Grid item xs={7}>
-              Test
-            </Grid>
+            <Grid item xs={7}></Grid>
             <Grid item xs={1}>
               <TopMenu />
             </Grid>
             <Grid item xs={1}>
-              <TopMenu />
+              <AddCircleOutlineIcon
+                onClick={() => window.alert("Work in Progress")}
+                className={classes.circleIcon}
+              />
             </Grid>
             <Grid item xs={1}>
               <ProfileMenu />
