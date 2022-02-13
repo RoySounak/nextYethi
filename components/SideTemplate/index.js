@@ -3,7 +3,6 @@ import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { makeStyles } from "@material-ui/core/styles";
-import AppsIcon from "@material-ui/icons/Apps";
 import { useRouter } from "next/router";
 import { Button, Grid } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -11,35 +10,32 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode";
 import BusinessIcon from "@material-ui/icons/Business";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
+// import styles from "../../styles/SideTemplate.module.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
   paper: {
-    // marginLeft: theme.spacing(1),
     position: "relative",
     width: "240px",
-    height: "520px",
+    height: `calc(100vh - 70%)`,
     marginTop: "10px",
     marginLeft: "12px",
-    // marginTop: "64px",
+    marginBottom: "10px",
   },
-  papeShrinkr: {
-    // marginLeft: theme.spacing(1),
+  papeShrink: {
     position: "relative",
     width: "80px",
-    height: "520px",
+    height: `calc(100vh - 70%)`,
     marginTop: "10px",
     marginLeft: "12px",
-    // marginTop: "64px",
+    marginBottom: "12px",
   },
 }));
 
 export default function SideTemplate() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
   const router = useRouter();
   const [menuOpen, setMenuOpen] = React.useState(true);
 
@@ -64,17 +60,6 @@ export default function SideTemplate() {
     },
   ];
 
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-
-    prevOpen.current = open;
-  }, [open]);
-  ///
-
   const handleShrink = () => {
     if (menuOpen) {
       setMenuOpen(false);
@@ -85,39 +70,36 @@ export default function SideTemplate() {
   useEffect(() => {
     setMenuOpen(false);
   }, []);
+
   return (
     <Grid
       component={Paper}
-      className={menuOpen ? classes.paper : classes.papeShrinkr}
+      className={menuOpen ? classes.paper : classes.papeShrink}
     >
       <MenuList>
-        <div>
-          <div>
-            {modules.map((module, index) =>
-              menuOpen ? (
-                <>
-                  <MenuItem
-                    key={index}
-                    onClick={() => router.push(module.href)}
-                  >
-                    {module.title}
-                  </MenuItem>
-                </>
-              ) : (
-                <>
-                  <MenuItem
-                    key={index}
-                    onClick={() => router.push(module.href)}
-                  >
-                    <Grid container justifyContent="center">
-                      {module.icon}
-                    </Grid>
-                  </MenuItem>
-                </>
-              )
-            )}
-          </div>
-        </div>
+        {modules.map((module, index) =>
+          menuOpen ? (
+            <>
+              <MenuItem
+                key={module.title}
+                onClick={() => router.push(module.href)}
+              >
+                {module.title}
+              </MenuItem>
+            </>
+          ) : (
+            <>
+              <MenuItem
+                key={module.title}
+                onClick={() => router.push(module.href)}
+              >
+                <Grid container justifyContent="center">
+                  {module.icon}
+                </Grid>
+              </MenuItem>
+            </>
+          )
+        )}
       </MenuList>
 
       <Button
@@ -128,7 +110,7 @@ export default function SideTemplate() {
           bottom: 0,
           width: "100%",
           left: 0,
-          backgroundColor: "lightblue",
+          backgroundColor: "#EEF3FC",
         }}
       >
         {menuOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}

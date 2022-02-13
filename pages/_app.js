@@ -9,16 +9,25 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Grid container direction="column">
-          <Grid item xs={12}>
-            <TopBar />
-          </Grid>
-          <Grid container item xs={12} direction="row">
-            <Grid>
-              <SideTemplate />
+        <Grid
+          style={{
+            backgroundColor: "#e4e4e4",
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Grid container direction="column">
+            <Grid item xs={12}>
+              <TopBar />
             </Grid>
-            <Grid>
-              <Component {...pageProps} />
+            <Grid container item xs={12} direction="row">
+              <Grid>
+                <SideTemplate />
+              </Grid>
+              <Grid>
+                <Component {...pageProps} />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

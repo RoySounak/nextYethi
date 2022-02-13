@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+}
+
+.paper {
+  position: relative;
+  width: 240px;
+  height: "clac(100vh-70%)";
+  margin-top: 10px;
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+.paperShrink {
+  position: relative;
+  width: 80px;
+  height: "clac(100vh-70%)";
+  margin-top: 10px;
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+
+.menuCollapseButton {
+  position: "absolute";
+  bottom: 0;
+  width: "100%";
+  left: 0;
+  background-color: "#EEF3FC";
+}

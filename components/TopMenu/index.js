@@ -101,7 +101,7 @@ export default function TopMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {appsMenu.map((menu) => (
+        {appsMenu.map((menu, index) => (
           <>
             <StyledMenuItem
               onClick={() => {
