@@ -75,16 +75,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  tenjinIcon: {
-    color: "black",
-    cursor: "pointer",
-    fontSize: "20px",
-  },
-  circleIcon: {
-    color: "#44409A",
-    cursor: "pointer",
-    marginTop: "0.8rem",
-  },
+  addIcon: { color: "#44409A", cursor: "pointer", marginTop: "0.8rem" },
 }));
 
 const TopBar = ({ open, setOpen, handleDrawerOpen }) => {
@@ -105,7 +96,11 @@ const TopBar = ({ open, setOpen, handleDrawerOpen }) => {
               <Typography
                 variant="h6"
                 noWrap
-                className={classes.tenjinIcon}
+                style={{
+                  color: "black",
+                  cursor: "pointer",
+                  fontSize: "20px",
+                }}
                 onClick={() => router.push("/")}
               >
                 Tenjin Online
@@ -124,7 +119,11 @@ const TopBar = ({ open, setOpen, handleDrawerOpen }) => {
             <Grid item xs={1}>
               <AddCircleOutlineIcon
                 onClick={() => window.alert("Work in Progress")}
-                className={classes.circleIcon}
+                style={{
+                  color: "#44409A",
+                  cursor: "pointer",
+                  marginTop: "0.8rem",
+                }}
               />
             </Grid>
             <Grid item xs={1}>
